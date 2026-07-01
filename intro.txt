@@ -1,0 +1,131 @@
+In chapter 1 we work  under 2 layer only:
+1 client layer and other FastAPI layer
+so now in chapter 3 I am introducing another layer that is database layer.
+
+jaba hamile client bata request bejchau than FastAPI le database sanga connect garera kunai operation
+garera, tapai haru lai response garcha.So we are using RDBMS(Relational Database Management System.) or we can say
+Relational Databases, for eg:
+PostgreSQL
+MySQL
+SQLite
+Microsoft SQL Server
+
+so for our FastAPI work we are using MySQL here:
+so lets learn hamro database structure or table structure kasto huncha bhanera:
+
+1: so suru ma hamro auta database huncha mysql ma and tesma hamro TODO table huncha.
+todo table ma id, table, description, priority, is_completed and ceated_AT chahi column ma huncha
+
+id - int+ primary key
+title - VARBHAR
+DESCRIPTION - VARCHAR
+priority - INT
+is_completed - TINYINT
+created_at - DATETIME
+
+kun ko kun datatype cha bhanera mathi dekhako cha, hami aestai garnechau.
+
+in this chapter there are 1 20 7 episod:
+
+episode 1: ORMs and SQLModel
+orm- object Relational Mapping
+oop eg: python, java, php, ruby, etc
+
+ormo- provided in copy, look the note and type here again.
+
+SQLModel - you auta python based ORM tool ho.
+
+SQLModel helps you write one Python class and use it for both:
+FastAPI data validation
+Database storage
+
+So instead of maintaining two separate models, you maintain one model.
+
+>>the main reason SQLModel exists: write once, use in both FastAPI and the database.
+
+>>##SQLModel is a library that lets you define Python classes which act as both FastAPI data models
+ and database tables, while using SQLAlchemy under the hood.
+
+"SQLModel is a Python-based ORM tool built on top of SQLAlchemy and Pydantic."
+this mean:
+
+SQLModel uses SQLAlchemy's database features and Pydantic's validation features,
+and gives you one simpler tool to work with.
+
+
+swagger configuration:
+Swagger configuration means setting up Swagger in your application so it can automatically create API documentation
+
+Swagger configuration tells Swagger:
+Project name
+API version
+Description of the APIs
+Which API endpoints to show
+
+Why use Swagger?
+
+✅ Automatically generates API documentation
+✅ Easy to test APIs from a browser
+✅ Helps frontend and backend developers work together
+✅ Saves time writing documentation manually
+
+Why developers use Swagger in FastAPI
+See all endpoints in one place.
+Test APIs without using Postman.
+Understand request and response formats.
+Share API documentation with frontend developers.
+
+So when someone says "configure Swagger in FastAPI", they usually mean:
+
+Set API title, version, and description.
+Add endpoint descriptions and examples.
+Customize the /docs page if needed.
+
+The best part is that FastAPI gives you Swagger UI automatically at /docs.
+
+
+
+>#Technique that creates a bridge between object-oriented programming language and relational databases.
+2 Create SQLModel and classes
+3 Connect to database and create table
+4 Build Post API
+5 Buil Get APIs
+6 Build PUT API
+7 Build Delete API
+
+Swagger is a web page that shows all your FastAPI APIs in one place.
+
+When you run your FastAPI app and open /docs, Swagger lets you:
+
+See all API endpoints.
+Test APIs by clicking buttons (without Postman).
+
+So, Swagger = automatic API documentation + API testing page.
+
+Dependency::
+
+In FastAPI, a dependency is a way to tell FastAPI:
+
+"Before executing this endpoint, run this function (or class) and provide its result."
+It is part of FastAPI's Dependency Injection (DI) system, which helps you reuse common logic without repeating code.
+
+Why use dependencies?
+
+Dependencies are commonly used for:
+Authentication and authorization
+Database sessions
+Validating API keys or tokens
+Loading configuration
+Logging
+Rate limiting
+Reusing common validation logic
+
+
+
+
+
+
+
+
+
+

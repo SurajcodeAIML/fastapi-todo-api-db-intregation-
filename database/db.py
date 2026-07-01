@@ -1,0 +1,46 @@
+from typing import Annotated
+
+from dotenv import load_dotenv
+import os
+
+from fastapi import Depends
+from sqlmodel import create_engine, SQLModel, Session
+from contextlib import contextmanager
+
+
+load_dotenv()
+
+USERNAME = os.getenv("DB_USERNAME")
+PASSWORD = os.getenv("DB_PASSWORD")
+
+
+
+DB_URL = f"mysql+mysqlconnector://{USERNAME}:{PASSWORD}@localhost:3306/fastapi_tutorial"    #>this is db url, in local host if you are using any server than tesko Ip use garna parcha, and 3306 is the port
+
+engine = create_engine(DB_URL, echo=True)
+
+def create_table():
+    SQLModel.metadata.create_all(engine)
+
+@contextmanager             #adding decorator here, it is optional you can add or not
+def get_session_context():
+    session = Session(engine)
+
+    try:
+        yield session
+    except:
+        session.rollback()
+        raise
+    finally:
+        session.close()
+
+def get_session():
+    with get_session_context() as session:
+        yield session
+
+SessionDependency = Annotated[Session, Depends(get_session)]
+
+
+
+
+
